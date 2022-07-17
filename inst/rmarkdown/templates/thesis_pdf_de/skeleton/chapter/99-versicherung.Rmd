@@ -1,0 +1,19 @@
+\newpage
+# Eidesstattliche Versicherung
+
+*Hiermit erkläre ich an Eides statt, dass die vorliegende \thesistype{} von mir selbständig
+verfasst wurde und ich keine anderen als die angegebenen Hilfsmittel – insbesondere
+keine im Quellenverzeichnis nicht benannten Internet–Quellen – benutzt habe und die
+Arbeit von mir vorher nicht einem anderen Prüfungsverfahren eingereicht wurde. Die
+eingereichte schriftliche Fassung entspricht der auf dem elektronischen Speichermedium.
+Ich bin damit einverstanden, dass die \thesistype{} veröffentlicht wird.*
+\vspace{1cm}
+
+Hamburg, den \thesisdate{}
+\vspace{3cm}
+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+\vspace{0.1cm}
+
+\thesisauthor{}
+

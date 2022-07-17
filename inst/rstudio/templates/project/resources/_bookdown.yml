@@ -1,0 +1,14 @@
+book_filename: "thesis"
+rmd_files: ["index.Rmd",
+  "chapter/01-intro.Rmd",
+  "chapter/02-methods.Rmd",
+  "chapter/03-results.Rmd",
+  "chapter/04-discussion.Rmd",
+  "chapter/96-references.Rmd",
+  "chapter/97-appendix.Rmd",
+  "chapter/98-acknowledge.Rmd",
+  "chapter/99-declaration.Rmd",
+  ]
+output_dir: "thesis-output"
+download: ["thesis.pdf", "PDF"]
+delete_merged_file: true

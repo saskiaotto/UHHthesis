@@ -1,0 +1,8 @@
+\newpage
+# Literaturverzeichnis
+
+<!-- Der folgende HTML tag ist wichtig, damit die automatische Referenzliste nicht am Ende der Arbeit sondern in diesem Kapitel angezeigt wird. -->
+<div id="refs"></div>
+
+
+\newpage

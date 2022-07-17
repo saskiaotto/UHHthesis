@@ -1,0 +1,13 @@
+# Abkürzungsverzeichnis {-}
+<!-- Hinweis: Das {-} hier bedeutet, dass diese Abschnittsüberschrift nicht nummeriert wird -->
+
+Zur Auflistung von Abkürzungen kann eine Tabelle mittels R Markdown oder \LaTeX Syntax erstellt werden. Bei der \LaTeX Variante ist allerdings der Vorteil, dass die Tabelle keine automatische Nummer erhält und daher nicht im Tabellenverzeichnis erscheint. Auch startet die nächste Tabelle im Haupttext mit der Nummer 2!
+
+\vspace{1cm}  <!-- Fuegt einen Abstand zwischen Text und Tabelle ein  -->
+
+\begin{tabular}{*2{l}}
+    ATP  &  Adenosintriphosphat   \\ 
+    CoA  &  Coenzym A  \\
+    DNA  &  Desoxyribonukleinsäure \\         
+    mtDNA  &  Mitochondriale DNA \\
+\end{tabular}

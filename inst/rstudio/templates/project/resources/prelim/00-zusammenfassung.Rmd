@@ -1,0 +1,3 @@
+# Zusammenfassung {-}
+
+The thesis should always provide a German summary after the abstract, independent of the language of the main sections. Its content should not deviate from the abstract. 

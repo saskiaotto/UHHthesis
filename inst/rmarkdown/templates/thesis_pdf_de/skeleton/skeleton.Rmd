@@ -1,0 +1,115 @@
+---
+# Zeile 3 - 11 fuer das Anpassen des Titelblatts
+type: "Bachelorarbeit / Masterarbeit"
+title: "Titel der Abschlussarbeit"
+author: "Mandy Mustermann"
+birth: "31. Januar 1970"
+matriculation_number: "1234567"
+degree_program: "Biologie"
+submit_date: "1. April 2000"
+advisor1: "Prof. A. Ersthelfer"
+advisor2: "Prof. Z. Eswirdschonwerden"
+
+# Zeile 14 - 22 können so gelassen werden für die einzelnen Kapitel
+abstract: | 
+  `r if(knitr:::is_latex_output()) paste(readLines("prelim/00-abstract.Rmd"), collapse = '\n  ')`
+zusammenfassung: |   
+  `r if(knitr:::is_latex_output()) paste(readLines("prelim/00-zusammenfassung.Rmd"), collapse = '\n  ')`
+abbreviations: |    #  Wenn Abkürzungsverzeichnis nicht gewünscht, Zeile 18-19 löschen
+  `r if(knitr:::is_latex_output()) paste(readLines("prelim/00-abkuerzungen.Rmd"), collapse = '\n  ')`
+lot: true                             # Tabellenverzeichnis (nicht obligatorisch)
+lof: true                             # Abbildungsverzeichnis (nicht obligatorisch)
+link-citations: true
+
+# Pfad des Literaturverzeichnis (die 'packages.bib' Datei wird automatisch generiert)
+bibliography: [bib/references.bib, bib/packages.bib]  
+csl: bib/sage-harvard.csl             # Pfad des Referenzstils (.csl Datei)
+
+space_between_paragraphs: true        # Abstandshaltung zwischen Paragraphen
+# In den nächsten beiden Zeilen können die Zeilenabstände in der Arbeit geändert werden:
+header-includes:
+    - \usepackage{setspace}\onehalfspacing # (alternativ: '\singlespacing' oder '\doublespacing')
+
+# Einstellungen zur Erstellung des Dokuments:  
+knit: "bookdown::render_book"
+output: UHHthesis::thesis_pdf_de           
+---
+
+```{r setup, include = FALSE}
+# Settings --> diesen code chunk wenn moeglich so lassen 
+knitr::opts_chunk$set(echo = FALSE, message = FALSE,
+  warning = FALSE, error = FALSE, cache = TRUE,
+  fig.path='figures/', cache.path = 'cache/')
+# Setzen der Weite des R Outputs
+options(width = 50)
+```
+
+```{r load-packages, include = FALSE}
+# Hier alle Pakete hinzufuegen, die spaeter benoetigt werden
+library(knitr)
+library(kableExtra)
+library(xtable)
+# library(tidyverse)
+```
+
+
+```{r generate-package-refs, include=FALSE}
+# Erstelle automatisch eine bib Datenbank der genutzen R Pakete 
+knitr::write_bib(
+  x = c(.packages(), 'bookdown', 'rmarkdown', 
+    # hier jetzt alle explizit geladen werden:
+    'knitr', 'kableExtra', 'xtable'), 
+  file = 'bib/packages.bib')
+```
+
+
+<!-- Texte die nicht in der Arbeit erscheinen sollen, koennen im R Markdown Dokument so
+ auskommentiert werden, während im R code chunk und YAML header mit '#' auskommentiert wird.
+ Dazu einfach die Zeilen markieren und die Tastenkombination strg bzw. cmd + shift + c
+ drücken.-->
+
+
+<!-- Der folgende Text ist nur zur Information. Es sollte hier kein Text später stehen.-->
+
+# Einstellungen im YAML Header {-}
+
+Im Folgenden gibt es einige Hinweise zu den Einstellungen des Dokumentes, die in den sog. YAML (*YAML Ain't Markup Language*) Kopfzeilen vorgenommen werden können. Dieser Abschnitt kann später gelöscht werden! Im übrigen kann die Nummerierung des Abschnitts bzw. Kapitels mit einem `{-}` hinter der Überschrift rausgenommen werden (dies wird hier gemacht wie auch im Abstract, der Zusammenfassung, den Verzeichnissen, der Danksagung und eidesstattlichen Versicherung).
+
+- Diese .Rmd Datei ist die eigentliche R Markdown Datei, die 'geknitted' wird, um die gesamte PDF-Datei zu erstellen. **Wichtig ist, dass sie unter dem Namen 'index.Rmd' abgespeichert wird.**  Alle anderen .Rmd Dateien werden **NICHT** 'geknitted'!!!
+- Im obigen YAML Kopfzeilenbereich sind bereits alle wichtigen YAML Einstellungen sowie Blindtexte gesetzt, die noch für das Titelblatt ausgetauscht werden müssen. Hinweis: wenn es Probleme beim 'knitten' gibt, könnten Leerzeichen die Ursache sein.
+- Die Liste an Referenzen kann entweder in die oben angegebene Datei 'bib/references.bib' eingefügt werden, oder der Pfad zur einer anderen Datei wird aufgeführt. Der Referenzstil wird mit der .csl Datei festgelegt, kann aber gegen eine andere ausgetauscht werden. Der aktuelle Stil orientiert sich am [SAGE Harvard](https://uk.sagepub.com/sites/default/files/sage_harvard_reference_style_0.pdf) Referenzstil. Weitere Informationen sind auch unter [Zitate und Literaturverzeichnis] zu finden.
+- Hyperlinks: die Standardfarben für interne Querverweise (inkl. Inhaltsverzeichnis), externe Querverweise, Zitatverweise und verlinkte URLs können angepasst werden, indem die YAML Parameter `linkcolor`, `filecolor`, `citecolor` bzw. `urlcolor` mit entsprechendem LaTeX Farbnamen gelistet werden, z.B. `linkcolor: red`.
+- Die eigentliche Funktion zur Erstellung dieser Arbeit ist `UHHthesis::thesis_pdf_de`. Sie erlaubt einige weitere Einstellungen, wie z.B. das Einfügen oder Ausschließen eines Inhaltsverzeichnisses (siehe auch die Funktionsdokumentation). Diese können wie folgt eingestellt werden:
+
+```
+output:
+  UHHthesis::thesis_de_pdf:
+    toc: true
+    toc_depth: 5
+    highlight: "default"
+```
+
+Die Standardeinstellungen von `toc`, `toc_depth` und `highlight` sind hier angezeigt, müssen aber nicht im YAML header extra gesetzt werden, außer diese sollen explizit geändert werden. Weitere Optionen, die sich hier definieren lassen, können der `bookdown::pdf_book` Funktion, auf die diese UHHthesis Funktion basiert, entnommen werden.
+
+
+Die Texte der Abschnitte *Abstract*, *Zusammenfassung* und das *Abkürzungsverzeichnis* werden in separaten Dateien im Ordner `prelim/` aufgeführt:
+
+- `00-abstract.Rmd`
+- `00-zusammenfassung.Rmd`
+- `00-abkuerzungen.Rmd`
+
+Alle anderen Kapitel werden in einzelnen .Rmd Dateien im Ordner `chapter/` aufgeführt:
+
+- `01-einleitung.Rmd`
+- `02-methodik.Rmd`
+- `03-ergebnisse.Rmd`
+- `04-diskussion.Rmd`
+- `96-referenzen.Rmd`
+- `97-anhang.Rmd`
+- `98-danksagung.Rmd`
+- `99-versicherung.Rmd`
+
+Die Reihenfolge der einzelnen Abschnitte und Kapitel wird in der Datei `_bookdown.yml` festgelegt. Falls weitere Kapitel (im Ordner `chapter/`) hinzugefügt werden sollen, einfach die Dateinamen dieser neuen .Rmd Dateien in die `_bookdown.yml` Datei mit auflisten.
+
+
+Eine gute Hilfe ist das Onlinebuch [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/), auf dem diese Vorlage basiert.

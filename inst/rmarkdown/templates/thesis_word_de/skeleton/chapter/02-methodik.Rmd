@@ -1,0 +1,113 @@
+# Material und Methodik
+
+Was genau in diesem Kapitel aufgeführt wird, hängt sehr von der Art der Abschlussarbeit ab, ob es sich um ein Laborexperiment, eine Feldstudie oder eine theoretische bzw. Modellierungsarbeit handelt. Bei Feldstudien ergeben sich typischerweise folgende Abschnitte:
+
+- Untersuchungsgebiet
+- Experimentelles Design
+- Datenerhebung
+- Statistische Analyse mit Angabe der entsprechenden Computerprogramme ^[wie [R](https://cran.r-project.org/) - so macht man übrigens eine Fußnote]
+
+
+## Untersuchungsgebiet 
+
+Externe Grafiken, wie z.B. Karten des Untersuchungsgebietes (siehe Abbildung \@ref(fig:location), lassen sich über die Funktion `knitr::include_graphics()` einbetten. Um eine Abbildungslegende zu erstellen wird der entsprechende Text der code chunk Option `fig.cap` innerhalb der geschweiften Klammern ganz zu Anfang gegeben.
+
+```{r location, echo=FALSE, fig.cap="Lage des Untersuchungsstandort...."}
+knitr::include_graphics("images/sampling_site.jpg")
+```
+
+Abbildungen, egal ob externe Bilder oder in R erstellte Diagramme, werden im Word Dokument übrigens immer über die gesamte Breite dargestellt. Einstellungen über die code chunk Optionen `fig.height` und `out.width` funktionieren leider aktuell nicht bei Word! Bei externen Bildern kann die Weite über die Größe der Bilddatei angepasst werden. Hier das Einbetten des gleichen Bildes mit kleinerer Auflösung. 
+
+```{r location-small, echo=FALSE, fig.cap="Verkleinerte Darstellung der Lage des Untersuchungsstandort...."}
+knitr::include_graphics("images/sampling_site_small.jpg")
+```
+
+
+## Querverweise
+
+Indem man dem Codeschnipsel (im Englischen 'code chunk') einen Namen (in obigen Beispiel *location*) **und** eine Bildlegende (=fig.cap) gibt, lassen sich Querverweise zu Abbildungen (externe Bilddateien und R Plots) mit `\@ref(fig:<label>)` generieren. `<label>` ist hierbei der Name des Codeschnipsels und `fig:` gibt an, dass es sich um eine Abbildung handelt (siehe Beispiel \@ref(fig:location)). Wichtig ist, dass die Namen der Codeschnipsel **keinen Unterstrich** enthalten. Stattdessen können Bindestriche verwendet werden.
+
+Querverweise zu anderen Kapiteln und Unterkapiteln erfolgen ganz einfach über eckige Klammern um den Kapitelnamen, z.B. ein link zur [Diskussion] via `[Diskussion]`.
+
+Tabellen müssen ähnlich wie Abbildungen ein Label und eine Bildüberschrift haben, um Querverweise erstellen zu können. Allerdings enthalten die Querverweise ein `tab:` in `\@ref(tab:<name>)`) anstelle von `fig:`. Die Bildüberschrift bei Tabellen die mit R erzeugt werden, können nicht wie bei Abbildungen im Codeschnipsel selbst vergeben werden, sondern in der R Funktion selbst (für Beispiele siehe das Kapitel [Ergebnisse]. 
+
+Dies ist ein Beispiel für einen Querverweis zu Tabelle \@ref(tab:kable1) im Kapitel [Das Paket `knitr` ].
+
+
+## Mathematische Gleichungen
+
+Gleichungen erzeugt man in R Markdown mit dem Dollarzeichen am Anfang und Ende. Wird jeweils ein Zeichen verwendet, wird die Gleichung in den Textfluss eingebettet. Will man die Gleichung in einer eigenen Zeile (mittig), muss man 2 Zeichen werden. Dies ist z.B. der sog. **inline mode** $E = mc^2$ und dies ist der sog. **display mode**: $$E = mc^2$$
+
+Ganz wichtig hier ist, dass sich kein Leerzeichen zwischen `$` und Gleichung befindet!!
+
+Alternativ kann die Gleichung direkt in LaTeX geschrieben werden, was einem mehr Kontrolle gibt und kompliziertere Gleichungen zulässt. Gleichungen werden auch automatisch nummeriert, wenn innerhalb der Gleichung ein Label vergeben wird, was für Querverweise nützlich ist. Das Label für einen Querverweis wird mit `\#eq:label` vor das Ende der Gleichung gesetzt (siehe Gleichung \@ref(eq:mean)): 
+
+\begin{equation}
+  \bar{X} = \frac{\sum_{i=1}^n X_i}{n} 
+  (\#eq:mean)
+\end{equation}
+
+Formeln und zugehörige Erläuterungen sind immer in Sätze zu integrieren, enden also entsprechend mit Komma oder Satzpunkt. Ein Beispiel wird nachfolgend dargestellt:
+
+Die Zufallsvariable $Y$ sei standardnormalverteilt, d.h. $Y \sim N(0,1)$. Dann besitzt $Y$ die Dichtefunktion
+
+\begin{equation}
+  f_{Y}(y)=\varphi(y) \stackrel{\mathrm{def}}{=} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{y^2}{2} \right\}, y \in \mathbb{R}.
+  (\#eq:density-norm)
+\end{equation}
+
+Dabei bezeichnet $\pi$ die Kreiszahl. Die Funktion
+
+\begin{equation}
+  F_{Y}(y)=\Phi(y) \stackrel{\mathrm{def}}{=} \int_{-\infty}^y \varphi(x) \,\mathrm{d}x, \quad y \in \mathbb{R}
+  (\#eq:dist-func)
+\end{equation}
+
+ist die zu \@ref(eq:density-norm) gehörige Verteilungsfunktion.
+
+Die Nummerierung von Gleichungen, wie bei \@ref(eq:density-norm), erfolgt nur, wenn auf diese im übrigen Text verwiesen wird. Insbesondere dann, wenn in der Arbeit viele Formeln vorkommen, erscheint die Verwendung von LaTeX sinnvoller.
+
+
+## Chemische Formeln
+
+### Allgemeines
+
+Für chemische Formeln sollte auch die LaTeX  Notation verwendet werden. Da chemische Formeln am besten aussehen, wenn sie nicht kursiv sind, muss die automatische Kursivierung des Mathematikmodus in LaTeX umgangen werden. Dazu muss das Argument `$\mathrm{formula here}$` verwendet werden, wobei die Formel innerhalb der geschweiften Klammern steht. 
+
+(*Hinweis: die Nutzung des Backticks, also des rückwärts geneigtes Hochkommas, am Anfang und Ende ist nur zu Demonstrationszwecken im R Markdown Dokument und dazu da, dass der Code NICHT in eine Formal umgewandelt wird !*)
+
+- $\mathrm{Fe_2^{2+}Cr_2O_4}$ wird also mit `$\mathrm{Fe_2^{2+}Cr_2O_4}$` geschrieben.
+- Exponent oder hochgestellt: $\mathrm{O^-}$
+- Tiefgestellt: $\mathrm{CH_4}$
+- Um Zahlen oder Buchstaben wie in $\mathrm{Fe_2^{2+}}$ zu stapeln, wird zuerst der tiefgestellte Index und dann der hochgestellte Index definiert.
+- Aufzählung: CuCl $\bullet$ $\mathrm{7H_{2}O}$
+- Delta: $\Delta$
+- Reaktionspfeile: $\longrightarrow$ oder  $\xrightarrow{Lösung}$
+- Resonanzpfeil: $\leftrightarrow$
+- Gleichgewichtspfeil: $\rightleftharpoons$
+
+### Reaktionen schreiben
+
+Chemische Reaktionen können mit LaTeX genauso wie mathematische Gleichungen in einer sog. Gleichungsumgebung (`\begin{equation}`) geschrieben werden. LaTeX platziert dann die Gleichung wo sie passt und nummeriert sie, falls dieses in der Gleichung definiert ist. Hier ein Beispiel:
+
+\begin{equation}
+  \mathrm{C_6H_{12}O_6 + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
+  (\#eq:reaction)
+\end{equation}
+
+Wir können diese Verbrennungsreaktion von Glukose über die Gleichung \@ref(eq:reaction) referenzieren.
+
+Weiteres Beispieles, welches innerhalb der Dollarzeichen statt der Gleichungsumgebung geschrieben ist (und somit keine Nummerierung hat): $\mathrm{NH_4Cl_{(s)}} \rightleftharpoons \mathrm{NH_{3(g)}+HCl_{(g)}}$ (Inlinemodus)
+
+Displaymodus: $$\mathrm{NH_4Cl_{(s)}} \rightleftharpoons \mathrm{NH_{3(g)}+HCl_{(g)}}$$
+
+
+## Software
+
+Dieser Abschnitt sollte standardmäßig immer zum Schluss kommen. Hier wird aufgelistet welche R Version und welche Pakete mit Versionsnummer genutzt wurden. Es dürfen hier auch nicht die Referenzen für die jeweiligen Pakete fehlen. Der folgende Text erstellt alles nötige automatisch. Hier müssen einfach nur die verwendeten Pakete aktualisiert werden:
+
+Die Analysen wurden mit der Statistiksoftware R (Version `r paste(R.Version()$major, R.Version()$minor, sep = ".")`) [@R-base] durchgeführt. Die Abschlussarbeit selbst, einschliesslich der Tabellen, wurde mit den Paketen 'bookdown' (Version `r packageVersion("bookdown")`) [@R-bookdown], 'rmarkdown' (Version `r packageVersion("rmarkdown")`) [@R-rmarkdown], 'knitr' (Version `r packageVersion("knitr")`) [@R-knitr] und 'huxtable' (Version `r packageVersion("huxtable")`) [@R-huxtable] erstellt. 
+
+
+<!-- Wenn das naechste Kapitel auf einer neuen Seite beginnen soll, den \newpage LaTeX Befehl verwenden: -->
+\newpage

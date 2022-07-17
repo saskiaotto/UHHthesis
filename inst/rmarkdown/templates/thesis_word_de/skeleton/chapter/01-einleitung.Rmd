@@ -1,0 +1,106 @@
+# Einleitung
+
+Die Bachelor- und Masterarbeit kann in deutscher oder englischer Sprache verfasst werden. Die Seitenzahl sollte dem Arbeitsaufwand der Bachelor- (12LP) bzw. Masterarbeit (30LP) insgesamt entsprechen (ggf. Rücksprache mit dem Anleiter). Die Arbeit ist in einfacher Ausfertigung (gebunden; keine Spiralbindung) und als eine pdf-Datei per Email oder auf einem USB-Stick im Studienbüro einzureichen.
+
+## Struktur und Form der Arbeit
+
+Die wissenschaftliche Arbeit sollte sich aus folgenden Abschnitten zusammensetzen, welche bereits in dieser Vorlage eingerichtet wurden. Die Reihenfolge ist hierbei etwas anders als beim PDF, da das Inhaltsverzeichnis noch automatisch an die erste Stelle gesetzt wird.
+
+1. **Titelblatt** [wird automatisch über den YAML Kopfbereich erstellt; die Darstellung ist beim Word Output leider nicht automatisch so wie beim PDF Output und von den UHH Richtlinien gefordert. Das Titelblatt muss daher am Schluss manuell angepasst werden (siehe die Datei 'front-page-example.pdf').]
+2. **Inhaltsverzeichnis** [wird automatisch nach dem Titelblatt erstellt]
+3. **Zusammenfassung** auf Englisch (**Abstract**) und Deutsch [s. Dateien im `prelim/` Ordner]
+4. **Abkürzungsverzeichnis** (optional) [s. Datei im `prelim/` Ordner]
+5. Ein **Tabellen**- und **Abbildungsverzeichnis** - wie bei der PDF Version - wird aktuell nicht automatisch erstellt.
+6. **Einleitung** [s. Datei im `chapter/` Ordner]
+7. **Material & Methoden** [s. Datei im `chapter/` Ordner]
+8. **Ergebnisse** [s. Datei im `chapter/` Ordner]
+9. **Diskussion** [s. Datei im `chapter/` Ordner]
+10. **Literaturverzeichnis** [dieses setzt sich aus den beiden Dateien 'references.bib' und 'packages.bib' im `bib/` Ordner zusammen, welche im YAML Kopfbereich explizit angegeben werden müssen; die 'references.bib' Datei muss manuell mit den zitierten Literaturquellen gefüllt werden, die Datei 'packages.bib', welches die Software Referenzen enthält wird automatisch durch den Codeschnipsel 'generate-package-refs' in der 'index.Rmd' Datei erstellt]
+11. **Anhang** (optional) [s. Datei im `chapter/` Ordner]
+12. **Danksagung** (optional) [s. Datei im `chapter/` Ordner]
+13. **Eidesstattliche Versicherung** (Pflicht) - Typ der Abschlussarbeit, Datum und Namen an den vorgegebenen Stellen einsetzen und Unterschrift hier nicht vergessen [s. Datei im `chapter/` Ordner]
+
+Grundsätzlich sollte folgendes Format eingehalten werden: Schriftgröße 12 Times New Roman, Zeilenabstand 1,5, Seitenränder jeweils 2,5cm, oberer Rand 2,5cm unterer Rand 2,0cm. Dies ist bereits in dieser Vorlage festgelegt und muss nicht weiter angepasst werden!
+
+
+##  Inhalt der Einleitung
+
+Die Einleitung setzt sich aus der Problemstellung, deren Relevanz sowie Zielsetzung und Aufbau der Arbeit zusammen. Die Einleitung sollte dabei immer vom Allgemeinen ins Spezifische gehen. Es sollten in knapper Form folgende Fragen beantwortet werden:
+
+- Was ist das allgemeine Thema?
+- Was ist die spezifische Fragestellung der Arbeit, welches Ziel wird verfolgt? Warum ist die Frage wichtig?
+- Wie wurde die Frage bisher in der Literatur behandelt? 
+- Welche Hypothese wird in der vorliegenden Arbeit (statistisch) getestet?
+- Wie ist der folgende Text gegliedert? (Argumentationskette, Teilprobleme)
+
+
+## Literatur
+
+Das Heraussuchen und Verwenden relevanter akademischer Literatur ist ein wichtiger Bestandteil von Abschlussarbeiten.
+
+###  Literaturrecherche
+
+Bei der Literatursuche empfiehlt es sich mit der vorgegebenen Einstiegsliteratur und den darin zitierten Quellen zu beginnen. Viele Titel lassen sich bequem über [Web of Science](https://apps.webofknowledge.com/WOS_GeneralSearch_input.do?product=WOS&search_mode=GeneralSearch&SID=E4BQAzXmvUw7kPeUIBE&preferencesSaved=) oder [Google Scholar](https://scholar.google.de/) suchen und finden. Dabei kann die Anzahl an Zitierungen einen brauch- baren Hinweis auf die Relevanz eines bestimmten Titels liefern. Die Web of Science Datenbank kann allerdings nur von der Uni aus aufgerufen werden oder von zuhause über einen [VPN](https://www.rrz.uni-hamburg.de/services/netz/vpn.html) client.
+
+
+Wichtige Literaturquellen sind
+
+1. Fachbücher, Standards
+2. Wiss. Zeitschriftenartikel
+3. Konferenzbeiträge
+4. Universitäre Abschlussarbeiten
+4. Technische Berichte, graue Literatur
+5. Online-Material, Ausarbeitungen
+
+Weitere wichtige Literaturdatenbanken im Fachbereich Biologie sind neben Web of Science und Google Scholar u.a. noch
+
+- die [Elektronische Zeitschriftenbibliothek der Universität Hamburg](https://www.sub.uni-hamburg.de/recherche/elektronische-zeitschriftenbibliothek.html) (EZB) 
+- die [Digitale Bibliothek](https://www.biologie.uni-hamburg.de/service/bibliotheken/bibliothek-fachbereichsbibliothek/digibib.html) der Fachbereichsbibliothek der UHH Biologie
+- die [virtuelle Fachbibliothek Biologie](http://www.vifabio.de/) (vifabio) der [Universitätsbibliothek Johann Christian Senckenberg](https://www.ub.uni-frankfurt.de/)
+- die Kataloge und Datenbanken die in der vifabio gelistet sind: http://www.vifabio.de/howto/info/icatalogs.html
+- [ScienceDirect](https://www.sciencedirect.com)
+
+
+### Zitate und Literaturverzeichnis
+
+Für alle wissenschaftlichen Arbeiten gilt: Wo immer möglich, sollte auf andere relevante Veröffentlichungen verwiesen werden, anstatt deren Inhalt noch einmal wiederzugeben. Für alle Aussagen und Darstellungen, die aus Veröffentlichungen stammen, sind Quellenangaben zu machen. Bei Inhalten aus fremden Quellen, die paraphrasiert oder wörtlich übernommen werden, ist die Quellenangabe an der Textstelle zu machen. Es genügt nicht, die Quelle ins Literaturverzeichnis aufzunehmen. Wörtliche Übernahmen von längeren Wortgruppen und ganzen Sätzen sind in Anführungszeichen zu setzen.
+
+Zur Erstellung von Literaturangaben und -verzeichnissen wird hier das Programm BibTeX verwendet. Der Vorteil von BibTeX bzw. einer Literaturdatenbank ist, dass alle Zitate und Quellenverweise im gesamten Dokument automatisch herausgesucht und über eine Literaturdatenbank den entsprechenden Werken zugeordnet werden. Die 'references.bib' Datei, auf die im YAML Kopfbereich verwiesen wird, stellt hierbei die Literaturdatenbank dar. Diese Datei ist eine sog. plain-text Datei, welche bibliographische Einträge in folgender Form enthält:
+
+```{r, eval=FALSE, echo=TRUE}
+@article{May1976,
+   author = {May, R. M.},
+   title = {Simple mathematical models with very 
+     complicated dynamics},
+   journal = {Nature},
+   volume = {261},
+   number = {5560},
+   pages = {459-467},
+   ISSN = {0028-0836},
+   DOI = {10.1038/261459a0},
+   url = {<Go to ISI>://WOS:A1976BT72500018},
+   year = {1976},
+   type = {Journal Article}
+}
+```
+
+Ein einzelner Eintrag fängt immer mit `@type{` an, wobei der Typ ein `article`, `book`, `manual`, `techreport`, `inproceedings`, `phdthesis` oder `misc` (bei z.B. Multimedia Typen, Computerprogramm) sein kann. Mehr Informationen zu den möglichen Typen sowie zu den einzelnen Feldern wie `author`, `title`, etc. gibt es unter https://de.wikipedia.org/wiki/BibTeX. Anschl. kommt nach der geschweiften Klammer der Referenzschlüssel bzw. der 'citation key'. Um einen dieser Einträge bzw. Referenzen zu zitieren wird das @ Zeichen mit dem Schlüssel kombiniert: 
+
+- `@May1976` --> wird zu @May1976
+- `[@May1976]` --> wird zu [@May1976]
+
+Bei Verwendung der eckigen Klammern erscheint also der Autorname zusammen mit der Jahreszahl in der runden Klammer.
+
+In der R Markdown Datei würde man z.B. schreiben "`@May1976` konnte zeigen, dass einfache Populationsmodelle komplexe chaotische Dynamiken auslösen können.", was im PDF/LaTeX Dokument dann zu "@May1976 konnte zeigen ..." übersetzt wird. Alle Referenzen erhalten automatischen einen Hypertext-Link zum Literaturverzeichnis. Falls dies nicht erwünscht ist, muss im YAML Kopfbereich `link-citation: false` angegeben werden.
+
+Mehreren zitierte Quellen werden mit einem Semikolon getrennt, z.B. [@kamm2000; @May1976; @RN410]
+
+Die Formatierung des Literaturverzeichnis ist variabel. Der im Dokument eingestellte BibTeX-Stil (engl. style) bestimmt, welche Angaben in welcher Formatierung dargestellt werden. Der Stil wird im YAML Kopfbereich über die .csl Datei festgelegt. CSL steht für *Citation Style Language* und ist eine XML-Sprache zur Beschreibung von Formaten für bibliografische Angaben und Referenzstile. Statt dem aktuellen [SAGE Harvard](https://uk.sagepub.com/sites/default/files/sage_harvard_reference_style_0.pdf) Stils kann jeder andere Stil verwendet werden indem auf eine andere .csl Datei verwiesen wird. Es gibt auf GitHub eine sog. 'repository', welche eine Vielzahl von .csl Datei für die entsprechenden Stile bereit stellt: https://github.com/citation-style-language/styles.
+
+Um das Organisieren, Austauschen und Zitieren von wissenschaftlichen Artikeln und PDF-Dokumenten in dieser wie auch weiteren Arbeiten zu erleichtern, empfiehlt es sich ein Literaturverwaltungsprogramm oder Referenzmanager, wie z.B. [Mendeley](https://www.mendeley.com/?interaction_required=true) oder [Zotero](https://www.zotero.org/), von Anfang an zu verwenden. Damit lassen sich auch .bib Dateien für einzelne Arbeiten erstellen.
+
+Ein sehr nützliches R Studio add-in mit dem man ganz leicht Quellen über eine GUI (graphische Oberfläche) einfügen kann ist das Paket [citr](https://github.com/crsh/citr). Wenn man Zotero als Referenzmanager verwendet, kann `citr` auch direkt auf dessen Datenbank zugreifen.
+
+
+<!-- Wenn das naechste Kapitel auf einer neuen Seite beginnen soll, den \newpage LaTeX Befehl verwenden (Latex funktioniert auch bei einem Word Dokument als Output): -->
+\newpage

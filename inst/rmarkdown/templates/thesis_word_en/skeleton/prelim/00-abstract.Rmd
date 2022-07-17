@@ -1,0 +1,13 @@
+# Abstract {-}
+
+The abstract comes always first and should raise the readers interest in reading further.
+
+The abstract summarizes, usually in one or two paragraph (here max. 1 page), the major aspects of the entire thesis in a prescribed sequence. This should include:
+
+- the overall purpose of the study and the research problem(s) you investigated
+- the basic design of the study
+- the major findings or trends found as a result of your analysis
+- a brief summary of your interpretations and conclusions.
+
+<!-- If you want the next chapter to start on a new page type -->
+\newpage

@@ -1,0 +1,19 @@
+book_filename: "thesis"
+rmd_files: ["index.Rmd",
+  "chapter/01-einleitung.Rmd",
+  "chapter/02-methodik.Rmd",
+  "chapter/03-ergebnisse.Rmd",
+  "chapter/04-diskussion.Rmd",
+  "chapter/96-referenzen.Rmd",
+  "chapter/97-anhang.Rmd",
+  "chapter/98-danksagung.Rmd",
+  "chapter/99-versicherung.Rmd"
+  ]
+output_dir: "thesis-output"
+download: ["thesis.pdf", "PDF"]
+delete_merged_file: true
+language:
+  label:
+    fig: "Abbildung "
+    tab: "Tabelle "
+    eq: "Gleichung "

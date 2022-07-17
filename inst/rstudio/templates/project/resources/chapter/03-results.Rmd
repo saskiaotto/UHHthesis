@@ -1,0 +1,100 @@
+# Results
+
+The result chapter is of great importance in an empirical study and should comprise a good mix of text, tables and figures. Use your research questions and hypothesis for structuring this chapter to provide the reader some structure and to not lose the thread.
+
+Figures and tables should be continuously numbered and referred to in the main text.  \LaTeX places figures and tables automatically were they fit best, which is sometimes on the next page. This is fine since they are cross-referenced anyway.
+  
+Tables have generally a caption at the top, while figures have a caption at the bottom. This has to be considered in some of the R functions (see below).
+
+
+## Tables
+
+### R Markdown table
+
+Table \ref{tab:rmd_tab} is a R Markdown table including a caption and label for cross-referencing. The caption is set with `Table: ...` and can come before or after the table. You do not need so set a number as \LaTeX will care of the numbering as well as the placing. Also note that the caption requires no quotation marks. 
+
+The label is set **right after** the table caption with `\label{tab:name}`. **Note here** that this is \LaTeX notation, where brackets are **curly**, not round! Also when cross-referencing R Markdown tables use the \LaTeX notation `\ref{tab:name}` (i.e., no `@` and curly brackets).
+
+Table: This is a table written in R Markdown.\label{tab:rmd_tab}
+
+| A            | New              | Table          |
+|:-------------|:----------------:|---------------:|
+|left-aligned  |center-aligned    |right-aligned   |
+|$123          |$456              |$789            |
+|*italics*     |normal            |**boldface**    |
+
+
+### Tables generated with R
+
+#### Using the `knitr` and  `kableExtra` packages
+
+&nbsp; <!-- This creates vertical space and is the same than \vspace{12pt} for latex -->
+
+Table \@ref(tab:kable1) is an example when using `knitr::kable` to generate the table and `kableExtra` to modify it. `knitr::kable()` has an explicit argument named `caption` where you can place your caption text.
+
+```{r kable1}
+df <- mtcars[1:5, 1:6]
+kable(df, booktabs = T, 
+  caption = "This is a table produced with knitr and modified with kableextra.") %>%
+kable_styling(position = "center", font_size = 9) %>%
+add_header_above(c(" " = 1, "Group 1" = 2, "Group 2" = 2,
+"Group 3" = 1, "Group 4" = 1)) %>%
+add_header_above(c(" ", "Group 5" = 4, "Group 6" = 2), bold = T) %>%
+footnote(general = "Your comments go here.")
+```
+
+
+#### The `xtable` package
+
+&nbsp;
+
+[xtable](https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf) has become increasingly popular but is not as easy to use as `knitr::kable`. For instance, when using the default settings the table caption is placed *below* the table (see Table \@ref(tab:xtable1)). Also, the label for cross-referencing has to be set inside the `xtable::xtable` function instead of the code chunk. And if you don't write `results='asis'` inside the chunk options, you get the \LaTeX code for the table instead of the actual table in your PDF output file!
+
+```{r, results="asis"}
+xt <- xtable(head(cars), booktabs = TRUE,
+  caption = "This is a table made with 'xtable'.",
+  label = "tab:xtable1")
+print(xt, comment = FALSE)
+```
+
+The advantage of the `xtable` package for the advanced R/\LaTeX user is that \LaTeX code can directly be incorporated (see Table \@ref(tab:xtable2)), and also the `xtable::print.xtable` function allows various additional settings.
+
+```{r, results="asis"}
+dat <- mtcars[1:3, 1:6]
+large <- function(x){
+paste0('{\\Large{\\bfseries{ ', x, '}}}')
+}
+italic <- function(x){
+paste0('{\\emph{ ', x, '}}')
+}
+
+print(xtable(dat,
+    caption = "This is a table made with 'xtable' and modified with LaTeX Code and the print.xtable function.",
+    label = "tab:xtable2"),
+  sanitize.rownames.function = italic,
+  sanitize.colnames.function = large,
+  caption.placement = "top",
+  booktabs = TRUE,
+  comment=FALSE)
+```
+
+
+## Figures
+
+Figures can directly be produced with R and displayed here. Similar to external images, figure captions and labels are placed inside the chunk options for cross-referencing (see Figure \@ref(fig:base-fig)).
+
+```{r base-fig, fig.cap = "Relationship between horsepower and fuel economy.", out.width='100%'}
+plot(mtcars$hp, mtcars$mpg,
+xlab = "Gross Horsepower",
+ylab = "Miles Per Gallon",
+pch = 19)
+abline(lm(mpg ~ hp, data = mtcars), col = "red")
+```
+
+Purely for demonstration purposes, figure \@ref(fig:boxplot-fig) shows a boxplot with just half the width and centered: 
+
+```{r, fig.cap = "Fuel differences between transmission types (0 = automatic, 1 = manual).\\label{fig:boxplot-fig}", out.width='50%', fig.height = 3, fig.align='center'}
+boxplot(mpg ~ am, mtcars)
+```
+
+

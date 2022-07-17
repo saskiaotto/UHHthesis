@@ -1,0 +1,107 @@
+---
+# Adjust lines 3 - 11 for the title page
+title: "Thesis title"     
+subtitle: "Mandy Mustermann"
+author: 
+- "born on 31. January 1970"
+- "Matriculation number: 1234567"
+- "Degree program: Biology"
+- "1. Advisor: Prof. A"
+- "2. Advisor: Prof. B" 
+date: "submitted on 1. April 2000"
+
+# Path to bibliography file (file 'packages.bib' will be automatically generated)
+bibliography: [bib/references.bib, bib/packages.bib]  
+csl: bib/sage-harvard.csl             # path to reference style file
+
+# Settings for rendering the document:    
+knit: "bookdown::render_book"
+output: UHHthesis::thesis_word_en
+---
+
+```{r setup, include = FALSE}
+# settings --> keep this chunk as it is!
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, 
+  warning = FALSE, error = FALSE, cache = TRUE,
+  fig.path='figures/', cache.path = 'cache/')
+# Set how wide the R output will go
+options(width = 50)
+```
+
+```{r load-packages, include = FALSE}
+# Load all your packages that you need later
+library(knitr)
+library(huxtable)
+# library(tidyverse)
+```
+
+```{r generate-package-refs, include=FALSE}
+# Automatically create a bib database for R packages used above
+knitr::write_bib(
+  x = c(.packages(), 'bookdown', 'rmarkdown', 
+    # here now all packages that are loaded above:
+    'knitr', 'huxtable'), 
+  file = 'bib/packages.bib')
+```
+
+```{r child="prelim/00-abstract.Rmd"}
+```
+
+```{r child="prelim/00-zusammenfassung.Rmd"}
+```
+
+<!-- Delete the following R code chunk if you have NOT a list of abbreviations. -->
+```{r child="prelim/00-abbreviations.Rmd"}
+```
+
+
+<!-- If you'd like to include a comment in the R Markdown file that won't be produced in your resulting file enclose it in a block like this (note that comments in code chunks and the YAML header are marked with a # instead). Simply mark the lines and press the keyboard shortcut ctrl or cmd + shift + c . -->
+
+
+
+<!-- The following text is for information only. There should be no text here later. -->
+
+# Settings in the YAML Header {-}
+
+This section provides an overview of the options and settings in the YAML (*YAML Ain't Markup Language*) header. You can delete this section later. The numbering of sections or chapters can be removed with a `{-}` after the heading (this is done here as well as in the abstract, summary, abbreviations, acknowledgements and declaration sections).
+
+- This .Rmd file is the actual R Markdown file, which needs to be knitted to render the entire thesis. **It is important that you name this file 'index.Rmd', otherwise you'll run into an error.** All other .Rmd file in this thesis folder (i.e. all the prelim and chapter files) **should not** be knitted!
+- In the above YAML header (which none of the other .Rmd file have) all necessary settings are made including some dummy text for the title page, which you need to adjust to your thesis. Please note that if you run into knitting problems, spacing in the YAML header might be the cause.
+- Currently, the cover page of the Word document version cannot be created in the same way as for the PDF output and required by the UHH standard. Consequently, the cover page needs to be adjusted manually at the last stage. The file 'front-page-example.pdf' serves as a template.
+- The list of references you cite in your thesis can either be copied into the 'bib/references.bib' file, which is provided above as default bibliography or you replace this file name with your own file(s). The reference style can defined by providing a .csl file. This template uses the [SAGE Harvard](https://uk.sagepub.com/sites/default/files/sage_harvard_reference_style_0.pdf) reference style, provided by the 'bib/sage-harvard.csl' file. But you cna replace this style file with any other .csl file. For more information see also [Citation and reference list].
+- The actual function to create this thesis is `UHHthesis::thesis_word_en`. It allows for a few more settings such as including or excluding a table of content (see also the function documentation). You can set them as follows:
+
+```
+output:
+  UHHthesis::thesis_word_en:
+    toc: false
+    reference_docx: "default"
+```
+The default settings of `toc`, `toc_depth`, and `highlight` are shown here but don't have to be set in the YAML header unless you want to change them. For further options that can be defined here see the documentation of the `bookdown::pdf_book` function, which is internally called. 
+
+The default settings of `toc` and `reference_docx` are shown here but don't have to be set in the YAML header unless you want to change them. For example, by default `UHHthesis::thesis_word_en` uses the file "uhh-template.docx" as template, which has similar settings as the PDF version. However, if you feel like using your own template or the standard Word template (i.e. the Normal.dot file) simply provide the path to your file or write 'default' for the latter case. or further options that can be defined here see the documentation of the `bookdown::word_document2` function, which is internally called. 
+
+
+The content of the section *Abstract*, *Zusammenfassung*, and *List of Abbreviations* has to be provided in individual .Rmd files located in the folder `prelim/`, i.e.
+
+- `00-abstract.Rmd`
+- `00-zusammenfassung.Rmd`
+- `00-abbreviations.Rmd`
+
+All other chapters have their own .Rmd file within the `chapter/` folder:
+
+- `01-intro.Rmd`
+- `02-methods.Rmd`
+- `03-results.Rmd`
+- `04-discussion.Rmd`
+- `96-references.Rmd`
+- `97-appendix.Rmd`
+- `98-acknowledge.Rmd`
+- `99-declaration.Rmd`
+
+The order of all sections and chapters is determined in the `_bookdown.yml` file. If you want to add more chapters, simply create a new .Rmd file in the `chapter/` folder following the same naming convention as the other files and add its file name to the `_bookdown.yml` file.
+
+If you want to learn more on how to modify this template or about PDF books made with `bookdown` (which is the basis for this template) in general, I highly recommend the online book [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)!
+
+<!-- If you want the next chapter to start on a new page type -->
+\newpage

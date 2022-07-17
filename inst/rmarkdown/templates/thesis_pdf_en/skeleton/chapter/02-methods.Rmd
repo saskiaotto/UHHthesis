@@ -1,0 +1,111 @@
+# Material and Methods
+
+The structure of this chapter depends very much on the type of research study, whether it is a field, laboratory or modelling study or a literature review. For field studies, the typical subsections are the
+
+- study site
+- experimental set-up
+- sampling design
+- statistical analysis with information on the used computer program ^[such as [R](https://cran.r-project.org/) - this is an example of a footnote]
+
+
+## Study site
+
+If you want to add external images here, e.g. to show the sampling site as in Fig. \@ref(fig:location), use the `knitr::include_graphics()` function. You should always provide a figure legend, which you can define in the code chunk option `fig.cap` inside the curly brackets at the very beginning. If you want the image to take less then 100% of the page with use the option `out.width` as demonstrated here:
+
+```{r location, echo=FALSE, fig.cap="Location of sampling site....", out.width = "50%"}
+knitr::include_graphics("images/sampling_site.jpg")
+```
+
+
+## Cross-references
+
+External images and R figures can be referenced with `\@ref(fig:<label>)`, where `<label>` is the name of the code chunk (in the above example its *location*). These label names should **not contain underscores** to separate words, use hyphens here instead. Note that figures need to have a caption to be numbered and for cross-referencing, The caption is also set in the chunk option with `fig.cap='Your caption'`.
+
+Cross-references to individual sections can simply be made by placing the name of the section into squared brackets, e.g. a link to the [Discussion] is made via `[Discussion]`.
+
+Tables require also a label and table caption for cross-referencing as figures. But here, the cross-reference contains a `tab:` in `\@ref(tab:<name>)`) instead of a `fig:`. Also, captions of tables produced with R cannot be set in the chunk options as for figures but in the R functions directly (see examples in the [Results]).
+
+This is for example a cross-reference to table \@ref(tab:kable1) in the [Using the `knitr` and  `kableExtra` packages] chapter.
+
+**Important note**: Labels for tables produced with R Markdown syntax have to be set with \LaTeX notation, hence, the cross-reference has to be also in \LaTeX (see for an example [R Markdown table]).
+
+
+## Mathematical equations
+
+Use mathematics in R Markdown as usual using the dollar sign `$` at the beginning and end of the equation; either in **inline mode** with one dollar sign $E = mc^2$ or in **display mode** with two `$$`: $$E = mc^2$$
+
+Important to note: do not leave a space between the `$` and your mathematical notation.
+
+Alternatively, you can use \LaTeX for more control and when equations are more complicated. \LaTeX equations are also automatically numbered if you define a label within the equation environment, which is useful if you have many equations and want to cross-reference them. The equation label needs to be written with `\#eq:label` before the end of the equation (see eq. \@ref(eq:mean)):
+
+\begin{equation}
+  \bar{X} = \frac{\sum_{i=1}^n X_i}{n} 
+  (\#eq:mean)
+\end{equation}  
+
+Formulas and corresponding explanations should be integrated into the sentence and, thus, end with a comma or period. Here comes an example:
+
+If the random variable $Y$ follows a standard normal distribution, i.e. $Y \sim N(0,1)$, it's density function can be described with
+
+\begin{equation}
+  f_{Y}(y)=\varphi(y) \stackrel{\mathrm{def}}{=} \frac{1}{\sqrt{2 \pi}} \exp \left\{ -\frac{y^2}{2} \right\}, y \in \mathbb{R}.
+  (\#eq:density-norm)
+\end{equation}
+
+$\pi$ represents the circle number or Ludolph's number. The function
+
+\begin{equation}
+  F_{Y}(y)=\Phi(y) \stackrel{\mathrm{def}}{=} \int_{-\infty}^y \varphi(x) \,\mathrm{d}x, \quad y \in \mathbb{R}
+  (\#eq:dist-func)
+\end{equation}
+
+represents then the distribution function of \@ref(eq:density-norm).
+
+The numbering of equations, as in \@ref(eq:density-norm), should only be done if they are referred to in the rest of the text. Especially if there are many equations in the thesis, the use of \LaTeX seems to make more sense.
+
+
+## Chemical formulas and equations 
+
+### Generals
+
+For chemical formulas the use of \LaTeX is also highly recommended. To avoid the automatic italicized typesetting in \LaTeX use the argument `$\mathrm{formula here}$`, with your formula inside the curly brackets.   
+
+*(Notice the use of the backticks here which enclose text that acts as code purely for demonstration purposes.)*
+
+- So, $\mathrm{Fe_2^{2+}Cr_2O_4}$ is written`$\mathrm{Fe_2^{2+}Cr_2O_4}$`.
+- Exponent or superscript: $\mathrm{O^-}$
+- Subscript: $\mathrm{CH_4}$
+- To stack numbers or letters as in $\mathrm{Fe_2^{2+}}$, the subscript is defined first, and then the superscript is defined.
+- Bullet: CuCl $\bullet$ $\mathrm{7H_{2}O}$
+- Delta: $\Delta$
+- Reaction arrows: $\longrightarrow$
+- Resonance arrows: $\leftrightarrow$
+- Reversible reaction arrows: $\rightleftharpoons$
+
+### Typesetting reactions
+
+For more complicated formulas, use similar to mathematical equations the 'equation environment' that starts with `\begin{equation}`) and ends with `\end{equation}`). \LaTeX will place the formula where it fits best and will number it if you provide a label. Here an example: 
+
+\begin{equation}
+  \mathrm{C_6H_{12}O_6 + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
+  (\#eq:reaction)
+\end{equation}
+
+We can reference this combustion of glucose reaction via equation \@ref(eq:reaction).
+
+Another example with the use of the dollar signs instead of LaTeX' equation environment (numbering is not possible then): $\mathrm{NH_4Cl_{(s)}} \rightleftharpoons \mathrm{NH_{3(g)}+HCl_{(g)}}$ (inline mode)
+
+Display mode: $$\mathrm{NH_4Cl_{(s)}} \rightleftharpoons \mathrm{NH_{3(g)}+HCl_{(g)}}$$
+
+
+
+## Software
+
+This section should always come at the end of the method chapter. You should list here the R version you used and each package with its version number, including the reference. The following text creates everything necessary automatically. You only need to update the packages used:
+
+All analyses were performed using the statistical software R (version `r paste(R.Version()$major, R.Version()$minor, sep = ".")`) [@R-base]. This thesis, including tables, was generated using the packages 'bookdown' (version `r packageVersion("bookdown")`) [@R-bookdown], 'rmarkdown' (version `r packageVersion("rmarkdown")`) [@R-rmarkdown], 'knitr' (version `r packageVersion("knitr")`) [@R-knitr], 'kableExtra' (version `r packageVersion("kableExtra")`) [@R-kableExtra], and 'xtable' (version `r packageVersion("xtable")`) [@R-xtable]. 
+
+
+
+<!-- If you want the next chapter to start on a new page type -->
+\newpage

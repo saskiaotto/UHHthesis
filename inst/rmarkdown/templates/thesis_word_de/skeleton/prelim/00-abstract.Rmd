@@ -1,0 +1,10 @@
+\newpage
+# Abstract {-}
+
+Auf etwa einer halben, maximal einer Seite sollten die wichtigsten Inhalte, Erkenntnisse, Neuerungen bzw. Ergebnisse der Arbeit beschrieben werden.
+Durch eine solche Zusammenfassung, im Engl. auch *Abstract* genannt, am Anfang der Arbeit wird die Arbeit deutlich aufgewertet. Hier sollte vermittelt werden, warum der Leser die Arbeit lesen sollte. 
+
+Die englische Zusammenfassung erfolgt zuerst. 
+
+<!-- Wenn das naechste Kapitel auf einer neuen Seite beginnen soll, den \newpage LaTeX Befehl verwenden: -->
+\newpage

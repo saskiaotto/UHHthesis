@@ -1,0 +1,8 @@
+\newpage
+# Acknowledgements
+
+I want to thank the following people ...
+
+
+<!-- If you want the next chapter to start on a new page type -->
+\newpage

@@ -1,0 +1,23 @@
+# Diskussion
+
+Absolute Richtlinien oder Regeln für eine gute Diskussion zu geben ist schwierig. Folgende Empfehlungen helfen aber hoffentlich weiter:
+
+- In der Diskussion erfolgt die Gegenbewegung zur Einleitung: vom Spezifischen zum Allgemeinen.
+- Zusammenfassung/Rekapitulation: Zu Beginn der Diskussion werden die Hauptergebnisse der Untersuchung kurz zusammen gefasst, und ob diese die Hypothesen bestätigen oder nicht. Ein Rückgriff auf die Sprache der Statistik aus dem Ergebniskapitel ist nicht mehr angebracht. In diesem Schritt sollten auch die Grundzüge der Argumente nochmals skizziert werden.
+Es ist sinnvoll, in der Diskussion möglichst bald und deutlich die Hauptaussage(n) dieser empirischen oder theoretischen Studie oder des Literatur-Reviews herauszustreichen: Was sind die neuen Erkenntnisse, die aus diesen Resultaten hervorgehen?
+- Erörterung der Ergebnisse: Nun wird ausführlich auf die Erkenntnisse eingegangen bzw. werden diese kritisch bewertet. Mögliche Fragen, die dabei beantwortet werden sollten:
+    - Ist die Befundlage überzeugend?
+    - In empirischen Studien: Was kann aus den Resultaten dieser Untersuchung gefolgert werden? Wie lassen sie sich in den Forschungsbereich eingliedern, was bedeuten sie für den Forschungsbereich? Welchen früheren Studien und Theorien widersprechen die Ergebnisse, welche werden dadurch bestätigt?
+    - In Literatur-Reviews: Konnten viele qualitativ hochwertige, aktuelle Publikationen zum Thema gefunden werden? Waren viele Quellen veraltet oder methodisch problematisch angelegt? Gibt es einen Konsens der meisten Studien? Oder gibt es Studiengruppen, die unterschiedliche Ergebnisse fanden (z.B. Studien, welche die Theorie bestätigen vs. Studien, die dies nicht tun)?
+    - Welche Fragen bleiben weiterhin unbeantwortet? Welche tauchen aufgrund der vorliegenden Resultate vielleicht neu auf?
+- Die eigene Arbeit kritisch bewerten: Werden im Nachhinein Einschränkungen oder Stärken des Ansatzes erkennbar? Gibt es hypothesenkonträre Ergebnisse, und wie können diese erklärt werden? Belegen die beobachteten Effektstärken überhaupt eine Bedeutsamkeit der Resultate? Es sollten die Generalisierbarkeit und die externe Validität der Resultate diskutiert werden.
+
+
+## Schlussfolgerung
+
+- Welche *take home messages* soll dem Leser, der Leserin auf den Weg geben werden? Was ist die Relevanz für weitere Forschung und praktische Anwendung? Was muss zukünftige Forschung leisten? Wie könnte die perfekte Studie aussehen, die diese Forschungsfrage besser beantworten kann?
+- Fazit, *final sentence*, der den Text abrundet.
+
+
+<!-- Wenn das naechste Kapitel auf einer neuen Seite beginnen soll, den \newpage LaTeX Befehl verwenden: -->
+\newpage

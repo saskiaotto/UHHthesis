@@ -1,0 +1,17 @@
+^CRAN-RELEASE$
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^README\.Rmd$
+^README-.*\.png$
+^cran-comments\.md$
+^CODE_OF_CONDUCT\.md$
+^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.travis.yml$
+^index.md$
+^index.Rmd$
+^resources
+^\.github$

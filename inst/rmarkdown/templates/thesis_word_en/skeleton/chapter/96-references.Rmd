@@ -1,0 +1,8 @@
+\newpage
+# References
+
+<!-- The following html tag is needed to place reference list not to end but in this section -->
+<div id="refs"></div>
+
+
+\newpage
