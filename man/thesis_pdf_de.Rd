@@ -2,9 +2,19 @@
 % Please edit documentation in R/thesis.R
 \name{thesis_pdf_de}
 \alias{thesis_pdf_de}
-\title{Convert R Markdown to a PDF/\LaTeX or thesis document in German}
+\alias{thesis_pdf_en}
+\title{Convert R Markdown to a PDF/\LaTeX or thesis document in German and English}
 \usage{
 thesis_pdf_de(
+  toc = TRUE,
+  toc_depth = 5,
+  highlight = "default",
+  latex_engine = "pdflatex",
+  pandoc_args = NULL,
+  ...
+)
+
+thesis_pdf_en(
   toc = TRUE,
   toc_depth = 5,
   highlight = "default",
@@ -33,11 +43,11 @@ as it works well with the German Umlaute.}
 A modified \code{\link[rmarkdown]{pdf_document}} based on the UHH LaTeX template.
 }
 \description{
-This function serves as wrapper for \code{\link[bookdown]{pdf_book}}, with different
-default values (e.g., \code{highlight = "default"}), a custom Pandoc \LaTeX template
-and different knitr default values (e.g., \code{fig.align = "center"}).
+These functions serves as wrappers for the bookdown function \code{\link[bookdown]{pdf_book}},
+with different default values (e.g., \code{highlight = "default"}), a custom Pandoc \LaTeX
+template and different knitr default values (e.g., \code{fig.align = "center"}).
 It is called from the initial R Markdown template file, which should be named \code{index.Rmd}.
-The function is based on the \code{thesis_pdf} function of the
+The functions are based on the \code{thesis_pdf} function of the
 \href{https://github.com/ismayc/thesisdown}{thesisdown} package.
 }
 \examples{

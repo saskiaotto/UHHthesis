@@ -1,10 +1,10 @@
-#' Convert R Markdown to a PDF/\LaTeX or thesis document in German
+#' Convert R Markdown to a PDF/\LaTeX or thesis document in German and English
 #'
-#' This function serves as wrapper for \code{\link[bookdown]{pdf_book}}, with different
-#' default values (e.g., \code{highlight = "default"}), a custom Pandoc \LaTeX template
-#' and different knitr default values (e.g., \code{fig.align = "center"}).
+#' These functions serves as wrappers for the bookdown function \code{\link[bookdown]{pdf_book}}, 
+#' with different default values (e.g., \code{highlight = "default"}), a custom Pandoc \LaTeX 
+#' template and different knitr default values (e.g., \code{fig.align = "center"}).
 #' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
-#' The function is based on the `thesis_pdf` function of the
+#' The functions are based on the `thesis_pdf` function of the
 #' \href{https://github.com/ismayc/thesisdown}{thesisdown} package.
 #'
 #' @param toc logical; \code{TRUE} to include a table of contents in the output.
@@ -63,38 +63,8 @@ thesis_pdf_de <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 }
 
 
-
-#' Convert R Markdown to a PDF/\LaTeX or thesis document in English
-#'
-#' This function serves as wrapper for \code{\link[bookdown]{pdf_book}}, with different
-#' default values (e.g., \code{highlight = "default"}), a custom Pandoc \LaTeX template
-#' and different knitr default values (e.g., \code{fig.align = "center"}).
-#' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
-#' The function is based on the `thesis_pdf` function of the
-#' \href{https://github.com/ismayc/thesisdown}{thesisdown} package.
-#'
-#' @param toc logical; \code{TRUE} to include a table of contents in the output.
-#' @param toc_depth integer; Depth of headers to include in table of contents. Default set to 5.
-#' @param highlight character; syntax highlighting style. Supported styles include "default",
-#'        "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", and "haddock".
-#'        Pass \code{NULL} to prevent syntax highlighting.
-#' @param latex_engine character; \LaTeX engine for producing PDF output. Options are "pdflatex"(default),
-#'        "xelatex", "lualatex",  and "tectonic".
-#' @param pandoc_args Additional command line options to pass to pandoc.
-#' @param ... Additional parameters to pass to \code{\link[bookdown]{pdf_book}}.
-#'
-#' @return A modified \code{\link[rmarkdown]{pdf_document}} based on the UHH LaTeX template.
-#'
-#' @import bookdown
-#' @import knitr
-#'
+#' @rdname thesis_pdf_de
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#'  # put in YAML header:
-#'  output: UHHthesis::thesis_pdf_en
-#' }
 thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
   latex_engine = "pdflatex", pandoc_args = NULL, ...) {
 
@@ -130,16 +100,16 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 
 
 
-#' Convert R Markdown to a Word (docx) thesis document in German
+#' Convert R Markdown to a Word (docx) thesis document in German and English
 #'
-#' This function serves as wrapper for \code{\link[bookdown]{word_document2}}, with different
-#' default values (e.g., \code{number_sections = FALSE}), a custom Pandoc Word template
+#' These functions serve as wrappers for the bookdown function \code{\link[bookdown]{word_document2}}, 
+#' with different default values (e.g., \code{number_sections = FALSE}), a custom Pandoc Word template
 #' and different knitr default values (e.g., \code{fig.align = "center"}).
 #' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
 #'
 #' @param toc logical; \code{TRUE} to include a table of contents in the output.
 #' @param toc_depth integer; Depth of headers to include in table of contents. Default set to 5.
-#' @param number_sections logical; whether to number section headers: if TRUE, figure/table numbers
+#' @param number_sections logical; whether to number section headers: if TRUE (default), figure/table numbers
 #'        will be of the form X.i, where X is the current first-level section number, and i is an
 #'        incremental number (the i-th figure/table); if FALSE, figures/tables will be numbered
 #'        sequentially in the document from 1, 2, ..., and you cannot cross-reference section
@@ -154,8 +124,7 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 #' @param pandoc_args Additional command line options to pass to pandoc.
 #' @param ... Additional parameters to pass to \code{\link[bookdown]{pdf_book}}.
 #'
-#' @return A modified \code{\link[rmarkdown]{word_document}} based on the UHH Word
-#'  template (soon to come).
+#' @return A modified \code{\link[rmarkdown]{word_document}} based on the UHH Word template.
 #'
 #' @import bookdown
 #' @import knitr
@@ -167,13 +136,14 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 #'  # put in YAML header:
 #'  output: UHHthesis::thesis_word_de
 #' }
-thesis_word_de <- function(toc = TRUE, toc_depth = 5, number_sections = FALSE,
+thesis_word_de <- function(toc = TRUE, toc_depth = 5, number_sections = TRUE,
   highlight = "default", reference_docx = "uhh-template.docx",
   pandoc_args = NULL, ...) {
 
   base <- bookdown::word_document2(
     toc            = toc,
     toc_depth      = toc_depth,
+    number_sections = number_sections,
     highlight      = highlight,
     keep_md        = TRUE,
     reference_docx = reference_docx,
@@ -189,50 +159,16 @@ thesis_word_de <- function(toc = TRUE, toc_depth = 5, number_sections = FALSE,
 
 
 
-#' Convert R Markdown to a Word (docx) thesis document in English
-#'
-#' This function serves as wrapper for \code{\link[bookdown]{word_document2}}, with different
-#' default values (e.g., \code{number_sections = FALSE}), a custom Pandoc Word template
-#' and different knitr default values (e.g., \code{fig.align = "center"}).
-#' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
-#'
-#' @param toc logical; \code{TRUE} to include a table of contents in the output.
-#' @param toc_depth integer; Depth of headers to include in table of contents. Default set to 5.
-#' @param number_sections logical; whether to number section headers: if TRUE, figure/table numbers
-#'        will be of the form X.i, where X is the current first-level section number, and i is an
-#'        incremental number (the i-th figure/table); if FALSE, figures/tables will be numbered
-#'        sequentially in the document from 1, 2, ..., and you cannot cross-reference section
-#'        headers in this case.
-#' @param highlight character; syntax highlighting style. Supported styles include "default",
-#'        "tango", "pygments", "kate", "monochrome", "espresso", "zenburn", and "haddock".
-#'        Pass \code{NULL} to prevent syntax highlighting.
-#' @param reference_docx character; use the specified file as a style reference in producing a docx file.
-#'        The 'uhh-template.docx' template implements most of the standard requirement at the UHH biology
-#'        department. If you prefer another template, pass the file name to this argument or simply use
-#'        'default' to use your standard Word template.
-#' @param pandoc_args Additional command line options to pass to pandoc.
-#' @param ... Additional parameters to pass to \code{\link[bookdown]{pdf_book}}.
-#'
-#' @return A modified \code{\link[rmarkdown]{word_document}} based on the UHH Word
-#'  template (soon to come).
-#'
-#' @import bookdown
-#' @import knitr
-#'
+#' @rdname thesis_word_de
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#'  # put in YAML header:
-#'  output: UHHthesis::thesis_word_en
-#' }
-thesis_word_en <- function(toc = TRUE, toc_depth = 5, number_sections = FALSE,
+thesis_word_en <- function(toc = TRUE, toc_depth = 5, number_sections = TRUE,
   highlight = "default", reference_docx = "uhh-template.docx",
   pandoc_args = NULL, ...) {
 
   base <- bookdown::word_document2(
     toc            = toc,
     toc_depth      = toc_depth,
+    number_sections = number_sections,
     highlight      = highlight,
     keep_md        = TRUE,
     reference_docx = reference_docx,

@@ -7,8 +7,7 @@ author:
 - "Matrikelnummer: 1234567"
 - "Studiengang: Biologie"
 - "Erstgutachter: Prof. A"
-- "Zweitgutachter: Prof. B" 
-note: "blabla"
+- "Zweitgutachter: Prof. B"
 date: "eingereicht am 1. April 2000"
 
 toc-title: "Inhaltsverzeichnis"

@@ -2,12 +2,23 @@
 % Please edit documentation in R/thesis.R
 \name{thesis_word_de}
 \alias{thesis_word_de}
-\title{Convert R Markdown to a Word (docx) thesis document in German}
+\alias{thesis_word_en}
+\title{Convert R Markdown to a Word (docx) thesis document in German and English}
 \usage{
 thesis_word_de(
   toc = TRUE,
   toc_depth = 5,
-  number_sections = FALSE,
+  number_sections = TRUE,
+  highlight = "default",
+  reference_docx = "uhh-template.docx",
+  pandoc_args = NULL,
+  ...
+)
+
+thesis_word_en(
+  toc = TRUE,
+  toc_depth = 5,
+  number_sections = TRUE,
   highlight = "default",
   reference_docx = "uhh-template.docx",
   pandoc_args = NULL,
@@ -19,7 +30,7 @@ thesis_word_de(
 
 \item{toc_depth}{integer; Depth of headers to include in table of contents. Default set to 5.}
 
-\item{number_sections}{logical; whether to number section headers: if TRUE, figure/table numbers
+\item{number_sections}{logical; whether to number section headers: if TRUE (default), figure/table numbers
 will be of the form X.i, where X is the current first-level section number, and i is an
 incremental number (the i-th figure/table); if FALSE, figures/tables will be numbered
 sequentially in the document from 1, 2, ..., and you cannot cross-reference section
@@ -39,12 +50,11 @@ department. If you prefer another template, pass the file name to this argument 
 \item{...}{Additional parameters to pass to \code{\link[bookdown]{pdf_book}}.}
 }
 \value{
-A modified \code{\link[rmarkdown]{word_document}} based on the UHH Word
-template (soon to come).
+A modified \code{\link[rmarkdown]{word_document}} based on the UHH Word template.
 }
 \description{
-This function serves as wrapper for \code{\link[bookdown]{word_document2}}, with different
-default values (e.g., \code{number_sections = FALSE}), a custom Pandoc Word template
+These functions serve as wrappers for the bookdown function \code{\link[bookdown]{word_document2}},
+with different default values (e.g., \code{number_sections = FALSE}), a custom Pandoc Word template
 and different knitr default values (e.g., \code{fig.align = "center"}).
 It is called from the initial R Markdown template file, which should be named \code{index.Rmd}.
 }
