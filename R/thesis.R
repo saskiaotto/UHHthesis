@@ -1,6 +1,6 @@
 #' Convert R Markdown to a PDF/\LaTeX or thesis document in German and English
 #'
-#' These functions serves as wrappers for the bookdown function \code{\link[bookdown]{pdf_book}}, 
+#' These functions serves as wrappers for the bookdown function \code{\link[bookdown]{pdf_book}},
 #' with a custom Pandoc \LaTeX template and different knitr default values (e.g., \code{fig.align = "center"}).
 #' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
 #' The functions are based on the `thesis_pdf` function of the
@@ -97,7 +97,7 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 
 #' Convert R Markdown to a Word (docx) thesis document in German and English
 #'
-#' These functions serve as wrappers for the bookdown function \code{\link[bookdown]{word_document2}}, 
+#' These functions serve as wrappers for the bookdown function \code{\link[bookdown]{word_document2}},
 #' with a custom Pandoc Word template and different knitr default values (e.g., \code{dpi = 144}).
 #' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
 #'
@@ -172,8 +172,9 @@ thesis_word_en <- function(toc = TRUE, toc_depth = 5, number_sections = TRUE,
     ...
   )
 
-  # Copied from knitr::render_sweave
+  # Set chunk options
   base$knitr$opts_chunk$comment   <- NA
+  base$knitr$opts_chunk$dpi <- dpi
 
   return(base)
 }

@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE,
   warning = FALSE, error = FALSE, cache = TRUE,
   fig.path='figures/', cache.path = 'cache/')
 # Set how wide the R output will go
-options(width = 50)
+options(width = 70)
 ```
 
 ```{r load-packages, include = FALSE}
