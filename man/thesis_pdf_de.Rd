@@ -44,8 +44,7 @@ A modified \code{\link[rmarkdown]{pdf_document}} based on the UHH LaTeX template
 }
 \description{
 These functions serves as wrappers for the bookdown function \code{\link[bookdown]{pdf_book}},
-with different default values (e.g., \code{highlight = "default"}), a custom Pandoc \LaTeX
-template and different knitr default values (e.g., \code{fig.align = "center"}).
+with a custom Pandoc \LaTeX template and different knitr default values (e.g., \code{fig.align = "center"}).
 It is called from the initial R Markdown template file, which should be named \code{index.Rmd}.
 The functions are based on the \code{thesis_pdf} function of the
 \href{https://github.com/ismayc/thesisdown}{thesisdown} package.

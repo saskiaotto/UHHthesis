@@ -39,7 +39,7 @@ library(huxtable)
 # Automatically create a bib database for R packages used above
 knitr::write_bib(
   x = c(.packages(), 'bookdown', 'rmarkdown', 
-    # here now all packages that are loaded above:
+    # Add here now all packages that are loaded above:
     'knitr', 'huxtable'), 
   file = 'bib/packages.bib')
 ```
@@ -76,10 +76,10 @@ output:
   UHHthesis::thesis_word_en:
     toc: false
     reference_docx: "default"
+    dpi: 144
 ```
-The default settings of `toc`, `toc_depth`, and `highlight` are shown here but don't have to be set in the YAML header unless you want to change them. For further options that can be defined here see the documentation of the `bookdown::pdf_book` function, which is internally called. 
 
-The default settings of `toc` and `reference_docx` are shown here but don't have to be set in the YAML header unless you want to change them. For example, by default `UHHthesis::thesis_word_en` uses the file "uhh-template.docx" as template, which has similar settings as the PDF version. However, if you feel like using your own template or the standard Word template (i.e. the Normal.dot file) simply provide the path to your file or write 'default' for the latter case. or further options that can be defined here see the documentation of the `bookdown::word_document2` function, which is internally called. 
+The default settings of `toc`, `reference_docx`, and `dpi` are shown here but don't have to be set in the YAML header unless you want to change them. For example, by default `UHHthesis::thesis_word_en` uses the file "uhh-template.docx" as template, which has similar settings as the PDF version. However, if you feel like using your own template or the standard Word template (i.e. the Normal.dot file) simply provide the path to your file or write 'default' for the latter case. For further options see also the documentation of the `bookdown::word_document2` function, which is internally called. 
 
 
 The content of the section *Abstract*, *Zusammenfassung*, and *List of Abbreviations* has to be provided in individual .Rmd files located in the folder `prelim/`, i.e.

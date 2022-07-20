@@ -11,6 +11,7 @@ thesis_word_de(
   number_sections = TRUE,
   highlight = "default",
   reference_docx = "uhh-template.docx",
+  dpi = 144,
   pandoc_args = NULL,
   ...
 )
@@ -21,6 +22,7 @@ thesis_word_en(
   number_sections = TRUE,
   highlight = "default",
   reference_docx = "uhh-template.docx",
+  dpi = 144,
   pandoc_args = NULL,
   ...
 )
@@ -45,6 +47,8 @@ The 'uhh-template.docx' template implements most of the standard requirement at 
 department. If you prefer another template, pass the file name to this argument or simply use
 'default' to use your standard Word template.}
 
+\item{dpi}{integer; the resolution of the output figures, default is 144 dots per inch.}
+
 \item{pandoc_args}{Additional command line options to pass to pandoc.}
 
 \item{...}{Additional parameters to pass to \code{\link[bookdown]{pdf_book}}.}
@@ -54,8 +58,7 @@ A modified \code{\link[rmarkdown]{word_document}} based on the UHH Word template
 }
 \description{
 These functions serve as wrappers for the bookdown function \code{\link[bookdown]{word_document2}},
-with different default values (e.g., \code{number_sections = FALSE}), a custom Pandoc Word template
-and different knitr default values (e.g., \code{fig.align = "center"}).
+with a custom Pandoc Word template and different knitr default values (e.g., \code{dpi = 144}).
 It is called from the initial R Markdown template file, which should be named \code{index.Rmd}.
 }
 \examples{

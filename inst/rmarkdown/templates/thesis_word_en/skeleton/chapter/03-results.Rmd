@@ -56,14 +56,14 @@ If you are interested in further table adaptations for Word output, I highly rec
 
 ```{r huxtable}
 df <- mtcars[1:5, 1:6]
-ht <- as_hux(df)
+ht <- as_hux(df, add_rownames = "model")
 ht <- set_outer_borders(ht, 0.4)
 bold(ht)[1,]           <- TRUE
 bottom_border(ht)[1,]  <- 0.4
-align(ht)[,2]          <- 'right'
-right_padding(ht)      <- 10
-left_padding(ht)       <- 10
+align(ht)[,2:7]          <- 'right'
+align(ht)[,1]          <- 'left'
 number_format(ht)      <- 2
+width(ht)              <- 1
 caption(ht)            <- "Overview of the first lines and columns in the mtcars dataset."
 
 ht
@@ -74,7 +74,7 @@ ht
 
 Figures can directly be produced with R and displayed here. Similar to external images, figure captions and labels are placed inside the chunk options for cross-referencing (see Fig. \@ref(fig:base-fig)).
 
-```{r base-fig, fig.cap = "Relationship between horsepower and fuel economy.", out.width='100%'}
+```{r base-fig, fig.cap = "Relationship between horsepower and fuel economy."}
 plot(mtcars$hp, mtcars$mpg,
 xlab = "Gross Horsepower",
 ylab = "Miles Per Gallon",

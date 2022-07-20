@@ -43,9 +43,9 @@ Important to note: do not leave a space between the `$` and your mathematical no
 Alternatively, you can use LaTeX for more control and when equations are more complicated. LaTeX equations are also automatically numbered if you define a label within the equation environment, which is useful if you have many equations and want to cross-reference them. The equation label needs to be written with `\#eq:label` before the end of the equation (see eq. \@ref(eq:mean)):
 
 \begin{equation}
-  \bar{X} = \frac{\sum_{i=1}^n X_i}{n} 
+  \bar{X} = \frac{\sum_{i=1}^n X_i}{n}
   (\#eq:mean)
-\end{equation}  
+\end{equation}
 
 Formulas and corresponding explanations should be integrated into the sentence and, thus, end with a comma or period. Here comes an example:
 

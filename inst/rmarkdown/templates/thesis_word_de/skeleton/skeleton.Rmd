@@ -80,9 +80,10 @@ output:
   UHHthesis::thesis_word_de:
     toc: false
     reference_docx: "default"
+    dpi: 144
 ```
 
-Die Standardeinstellungen von `toc` und `reference_docx` sind hier angezeigt, müssen aber nicht im YAML header extra gesetzt werden, außer diese sollen explizit geändert werden. Zum Beispiel könnte das Standardtemplate von Word (die Normal.dot Datei) verwendet werden mit der Einstellung "default". `UHHthesis::thesis_word_de` verwendet standardmäßig als Vorlage die Datei "uhh-template.docx", welche ähnliche Einstellungen hat wie die PDF Version. Weitere Optionen, die sich hier definieren lassen, können der `bookdown::word_document2` Funktion, auf die diese UHHthesis Funktion basiert, entnommen werden.
+Die Standardeinstellungen von `toc`, `reference_docx` und `dpi` sind hier angezeigt, müssen aber nicht im YAML header extra gesetzt werden, außer diese sollen explizit geändert werden. Zum Beispiel könnte das Standardtemplate von Word (die Normal.dot Datei) verwendet werden mit der Einstellung "default". `UHHthesis::thesis_word_de` verwendet standardmäßig als Vorlage die Datei "uhh-template.docx", welche ähnliche Einstellungen hat wie die PDF Version. Weitere Optionen, die sich hier definieren lassen, können der `bookdown::word_document2` Funktion, auf die diese UHHthesis Funktion basiert, entnommen werden.
 
 
 Die Texte der Abschnitte *Abstract*, *Zusammenfassung* und das *Abkürzungsverzeichnis* werden in separaten Dateien im Ordner `prelim/` aufgeführt:

@@ -1,8 +1,7 @@
 #' Convert R Markdown to a PDF/\LaTeX or thesis document in German and English
 #'
 #' These functions serves as wrappers for the bookdown function \code{\link[bookdown]{pdf_book}}, 
-#' with different default values (e.g., \code{highlight = "default"}), a custom Pandoc \LaTeX 
-#' template and different knitr default values (e.g., \code{fig.align = "center"}).
+#' with a custom Pandoc \LaTeX template and different knitr default values (e.g., \code{fig.align = "center"}).
 #' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
 #' The functions are based on the `thesis_pdf` function of the
 #' \href{https://github.com/ismayc/thesisdown}{thesisdown} package.
@@ -48,8 +47,6 @@ thesis_pdf_de <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 
   # To ensure images are in correct place (in line with text)
   base$knitr$opts_chunk$fig.align <- "center"
-  # base$knitr$opts_chunk$fig.pos    <- "H"
-  # base$knitr$opts_chunk$out.extra  <- ""
 
   # For tables
   options(knitr.table.format = "latex")
@@ -84,8 +81,6 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 
   # To ensure images are in correct place (in line with text)
   base$knitr$opts_chunk$fig.align <- "center"
-  # base$knitr$opts_chunk$fig.pos    <- "H"
-  # base$knitr$opts_chunk$out.extra  <- ""
 
   # For tables
   options(knitr.table.format = "latex")
@@ -103,8 +98,7 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 #' Convert R Markdown to a Word (docx) thesis document in German and English
 #'
 #' These functions serve as wrappers for the bookdown function \code{\link[bookdown]{word_document2}}, 
-#' with different default values (e.g., \code{number_sections = FALSE}), a custom Pandoc Word template
-#' and different knitr default values (e.g., \code{fig.align = "center"}).
+#' with a custom Pandoc Word template and different knitr default values (e.g., \code{dpi = 144}).
 #' It is called from the initial R Markdown template file, which should be named `index.Rmd`.
 #'
 #' @param toc logical; \code{TRUE} to include a table of contents in the output.
@@ -121,6 +115,7 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 #'        The 'uhh-template.docx' template implements most of the standard requirement at the UHH biology
 #'        department. If you prefer another template, pass the file name to this argument or simply use
 #'        'default' to use your standard Word template.
+#' @param dpi integer; the resolution of the output figures, default is 144 dots per inch.
 #' @param pandoc_args Additional command line options to pass to pandoc.
 #' @param ... Additional parameters to pass to \code{\link[bookdown]{pdf_book}}.
 #'
@@ -137,7 +132,7 @@ thesis_pdf_en <- function(toc = TRUE, toc_depth = 5, highlight = "default",
 #'  output: UHHthesis::thesis_word_de
 #' }
 thesis_word_de <- function(toc = TRUE, toc_depth = 5, number_sections = TRUE,
-  highlight = "default", reference_docx = "uhh-template.docx",
+  highlight = "default", reference_docx = "uhh-template.docx", dpi = 144,
   pandoc_args = NULL, ...) {
 
   base <- bookdown::word_document2(
@@ -151,8 +146,9 @@ thesis_word_de <- function(toc = TRUE, toc_depth = 5, number_sections = TRUE,
     ...
   )
 
-  # Copied from knitr::render_sweave
+  # Set chunk options
   base$knitr$opts_chunk$comment   <- NA
+  base$knitr$opts_chunk$dpi <- dpi
 
   return(base)
 }
@@ -162,7 +158,7 @@ thesis_word_de <- function(toc = TRUE, toc_depth = 5, number_sections = TRUE,
 #' @rdname thesis_word_de
 #' @export
 thesis_word_en <- function(toc = TRUE, toc_depth = 5, number_sections = TRUE,
-  highlight = "default", reference_docx = "uhh-template.docx",
+  highlight = "default", reference_docx = "uhh-template.docx", dpi = 144,
   pandoc_args = NULL, ...) {
 
   base <- bookdown::word_document2(
