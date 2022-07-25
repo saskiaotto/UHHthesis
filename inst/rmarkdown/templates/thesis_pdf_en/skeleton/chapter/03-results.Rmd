@@ -11,7 +11,7 @@ Tables have generally a caption at the top, while figures have a caption at the 
 
 ### R Markdown table
 
-Table \ref{tab:rmd_tab} is a R Markdown table including a caption and label for cross-referencing. The caption is set with **Table: ...** and can come before or after the table. You do not need so set a number as \LaTeX will care of the numbering as well as the placing. Also note that the caption requires no quotation marks. 
+Table \ref{tab:rmd_tab} is a R Markdown table including a caption and label for cross-referencing. The caption is set with **Table: ...** and can come before or after the table. You do not need so set a number as \LaTeX will take care of the numbering as well as the placing. Also note that the caption requires no quotation marks. 
 
 The label is set **right after** the table caption with `\label{tab:name}`. **Note here** that this is \LaTeX notation, where brackets are **curly**, not round! Also when cross-referencing R Markdown tables use the \LaTeX notation `\ref{tab:name}` (i.e., no `@` and curly brackets).
 
@@ -26,13 +26,13 @@ Table: This is a table written in R Markdown.\label{tab:rmd_tab}
 
 ### Tables generated with R
 
-Creating tables with R and packages like 'knitr' and 'kableExtra' is much easier (and protects against typing errors!) than manually entering values into a table by copying and pasting them into Excel or LaTeX. This shows once again how beautiful reproducible documents can be! 
+Creating tables with R and packages like *knitr* and *kableExtra* is much easier (and protects against typing errors!) than manually entering values into a table by copying and pasting them into Excel or LaTeX. This shows once again how beautiful reproducible documents can be! 
 
-#### Using the `knitr` and  `kableExtra` packages
+#### Using the *knitr* and  *kableExtra* packages
 
 &nbsp; <!-- This creates vertical space and is the same than \vspace{12pt} for latex -->
 
-Table \@ref(tab:kable1) is an example when using `knitr::kable` to generate the table and `kableExtra` to modify it. `knitr::kable()` has an explicit argument named `caption` where you can place your caption text.
+Table \@ref(tab:kable1) is an example of using `knitr::kable` to generate the table and *kableExtra* functions  to modify it. `knitr::kable()` has an explicit argument named `caption` where you can place your caption text.
 
 ```{r kable1}
 # Import dataset from the data/ folder
@@ -50,7 +50,7 @@ footnote(general = "Your comments go here.")
 ```
 
 
-#### The `xtable` package
+#### The *xtable* package
 
 &nbsp;
 

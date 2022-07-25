@@ -56,7 +56,7 @@ library(xtable)
 # Automatically create a bib database for R packages used above
 knitr::write_bib(
   x = c(.packages(), 'bookdown', 'rmarkdown', 
-    # here now all packages that are loaded above:
+    # Add here now all packages that are loaded above:
     'knitr', 'kableExtra', 'xtable'), 
   file = 'bib/packages.bib')
 ```

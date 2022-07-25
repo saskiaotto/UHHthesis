@@ -30,7 +30,7 @@ Creating tables with R and packages like 'knitr' is much easier (and protects ag
 
 Another advantage is that tables generated with R automatically receive a number and can be cross-referenced. To do this, simply assign a label for the R code chunk (directly after the '{r'). The cross-reference is then made with `\@ref{tab:code-chunk-label}`.
 
-#### Using the `knitr` package
+#### Using the *knitr* package
 
 Table \@ref(tab:kable1) is an example of using `knitr::kable()` to generate the table. The function has an explicit argument named `caption` where you can place your caption text.
 
@@ -50,7 +50,7 @@ knitr::kable(
 ```
 
 
-#### The `huxtable` package
+#### The *huxtable* package
 
 If you are interested in further table adaptations for Word output, I highly recommend a look at the R package ['huxtable'](https://hughjonesd.github.io/huxtable/index.html). Table \@ref(tab:huxtable) is an example of a table representation with 'huxtable':
 

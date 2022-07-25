@@ -23,7 +23,7 @@ External images and R figures can be referenced with `\@ref(fig:<label>)`, where
 
 Cross-references to individual sections can simply be made by placing the name of the section into squared brackets, e.g. a link to the [Discussion] is made via `[Discussion]`.
 
-Tables require also a label and table caption for cross-referencing as figures. But here, the cross-reference contains a `tab:` in `\@ref(tab:<name>)`) instead of a `fig:`. Also, captions of tables produced with R cannot be set in the chunk options as for figures but in the R functions directly (see examples in the [Results]).
+Tables require also a label and table caption for cross-referencing. But here, the cross-reference contains a `tab:` in `\@ref(tab:<name>)`) instead of a `fig:`. Also, captions of tables produced with R cannot be set in the chunk options as for figures but in the R functions directly (see examples in the [Results]).
 
 This is for example a cross-reference to table \@ref(tab:kable1) in the [Using the `knitr` and  `kableExtra` packages] chapter.
 
