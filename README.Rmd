@@ -27,7 +27,9 @@ Each templates generates a project structure with all required files, which are 
 
 ## Installation
 
-Install the *bookdown* and *UHHthesis* packages. Note that *UHHthesis* is not available on CRAN so you have to install it from GitHub using the *remotes* package as shown below.
+**NEW**: The package repository has been moved to the new GitHub account of the Department of Biology, University of Hamburg: [github.com/uham-bio](https://github.com/uham-bio) **!!!!!!**
+
+Install the *bookdown* and *UHHthesis* packages. Note that *UHHthesis* is **not** available on CRAN so you have to install it from GitHub using the *remotes* package as shown below.
 
 ```{r, eval = FALSE}
 # bookdown
@@ -35,7 +37,7 @@ if (!require("bookdown")) install.packages("bookdown")
 
 # remotes and UHHthesis
 if (!require("remotes")) install.packages("remotes")
-remotes::install_github("saskiaotto/UHHthesis", build_vignettes = TRUE)
+remotes::install_github("uham-bio/UHHthesis", build_vignettes = TRUE)
 ```
 
 

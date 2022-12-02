@@ -39,17 +39,21 @@ documentation. To learn more about the *bookdown* and *rmarkdown*
 packages in general, I highly recommend the following two online books
 (see also [Useful resources](#useful-resources)):
 
--   [R Markdown: The Definitive
-    Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J. J.
-    Allaire, and Garrett Grolemund
--   [bookdown: Authoring Books and Technical Documents with R
-    Markdown](https://bookdown.org/yihui/bookdown/) by Yihui Xie
+- [R Markdown: The Definitive
+  Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J. J.
+  Allaire, and Garrett Grolemund
+- [bookdown: Authoring Books and Technical Documents with R
+  Markdown](https://bookdown.org/yihui/bookdown/) by Yihui Xie
 
 ## Installation
 
+**NEW**: The package repository has been moved to the new GitHub account
+of the Department of Biology, University of Hamburg:
+[github.com/uham-bio](https://github.com/uham-bio) **!!!!!!**
+
 Install the *bookdown* and *UHHthesis* packages. Note that *UHHthesis*
-is not available on CRAN so you have to install it from GitHub using the
-*remotes* package as shown below.
+is **not** available on CRAN so you have to install it from GitHub using
+the *remotes* package as shown below.
 
 ``` r
 # bookdown
@@ -57,7 +61,7 @@ if (!require("bookdown")) install.packages("bookdown")
 
 # remotes and UHHthesis
 if (!require("remotes")) install.packages("remotes")
-remotes::install_github("saskiaotto/UHHthesis", build_vignettes = TRUE)
+remotes::install_github("uham-bio/UHHthesis", build_vignettes = TRUE)
 ```
 
 ## Getting started
@@ -71,7 +75,7 @@ Studio to see the `UHHthesis` templates listed.
     **From Template**. You should then be able to create a new document
     from one of the package templates:
 
-<img src="vignettes/images/img_create_document.jpg" title="demo create document" alt="demo create document" style="display: block; margin: auto;" />
+<img src="vignettes/images/img_create_document.jpg" alt="demo create document" style="display: block; margin: auto;" />
 
 2.  Choose the directory in which you want to save your project and
     provide a project name. In the screenshot above I name it
@@ -82,7 +86,7 @@ Studio to see the `UHHthesis` templates listed.
     `my_master_thesis.Rmd`) to `index.Rmd`. If you forget to rename it
     you will get an error message when rendering the file
 
-<img src="vignettes/images/img_rename_index_file.jpg" title="demo rename .Rmd file" alt="demo rename .Rmd file" width="100%" style="display: block; margin: auto;" />
+<img src="vignettes/images/img_rename_index_file.jpg" alt="demo rename .Rmd file" width="100%" style="display: block; margin: auto;" />
 
 5.  This `index.Rmd` file is in fact **the only file in your thesis
     directory** you’ll ever going to **knit**! If you take a look at the
@@ -94,7 +98,7 @@ Studio to see the `UHHthesis` templates listed.
     knit the `index.Rmd` immediately and use the output file as
     documentation on how to get started!**
 
-<img src="vignettes/images/img_knit_index_file.jpg" title="demo knit index file" alt="demo knit index file" width="75%" style="display: block; margin: auto;" />
+<img src="vignettes/images/img_knit_index_file.jpg" alt="demo knit index file" width="75%" style="display: block; margin: auto;" />
 
 6.  The output PDF or Microsoft Word thesis file rendered from the
     `index.Rmd` file will be placed in a new `thesis-output/`
@@ -115,7 +119,7 @@ there is another way to create the thesis project file:
     files to appear. This time the main .Rmd file will be named
     automatically `index.Rmd`, so you don’t need to do anything further.
 
-<img src="vignettes/images/img_create_project.jpg" title="demo create project" alt="demo create project" width="100%" style="display: block; margin: auto;" />
+<img src="vignettes/images/img_create_project.jpg" alt="demo create project" width="100%" style="display: block; margin: auto;" />
 
 ### Further requirements - LaTeX
 
@@ -190,7 +194,7 @@ as well as the Department of Informatics working groups
 and [Security &
 Privacy](https://www.inf.uni-hamburg.de/inst/ab/snp/courses/material/templates.html).
 
-<img src="vignettes/images/img_thesis_pdf.jpg" title="demo pdf output files in both langauges" alt="demo pdf output files in both langauges" width="100%" style="display: block; margin: auto;" />
+<img src="vignettes/images/img_thesis_pdf.jpg" alt="demo pdf output files in both langauges" width="100%" style="display: block; margin: auto;" />
 
 However, if you do not want to limit yourself to the template design and
 would like to share your thesis with others for collaborative editing
@@ -198,15 +202,15 @@ the **Word version** might be more suitable. But beware that there are
 currently some limitations when rendering from R Markdown to MS Word.
 For instance,
 
--   the title page layout cannot be done completely from within R
-    Markdown as in the PDF version. As a workaround, some of the text
-    parts are currently placed under the ‘author’ section. The best
-    solution is to modify the title page manually in Word right before
-    submission. Use for the design the ‘front-page-example.pdf’ file.
--   a table of figures and tables cannot be automatically generated as
-    in the PDF version.
+- the title page layout cannot be done completely from within R Markdown
+  as in the PDF version. As a workaround, some of the text parts are
+  currently placed under the ‘author’ section. The best solution is to
+  modify the title page manually in Word right before submission. Use
+  for the design the ‘front-page-example.pdf’ file.
+- a table of figures and tables cannot be automatically generated as in
+  the PDF version.
 
-<img src="vignettes/images/img_thesis_word.jpg" title="demo word output files in English" alt="demo word output files in English" width="100%" style="display: block; margin: auto;" />
+<img src="vignettes/images/img_thesis_word.jpg" alt="demo word output files in English" width="100%" style="display: block; margin: auto;" />
 
 ### Thesis components
 
@@ -290,40 +294,39 @@ Running some manual fine tuning in the Word document at the end is easy,
 but if you use as output the PDF version this can be a bit more
 challenging:
 
--   If you like to change some of the format and are familiar with LaTeX
-    you can also open the rendered `thesis.tex` file in your system’s
-    LaTeX editor, make the changes and recompile it. But note that
-    whenever you *knit* your `index.Rmd` again, your changes in the
-    LaTeX file will be overwritten. So this should be only done once the
-    content of your thesis doesn’t change.
--   A better way to add your personal format style is to add LaTeX code
-    in the YAML header under the option `header-includes:` since that
-    style will be included every time you render your document.
+- If you like to change some of the format and are familiar with LaTeX
+  you can also open the rendered `thesis.tex` file in your system’s
+  LaTeX editor, make the changes and recompile it. But note that
+  whenever you *knit* your `index.Rmd` again, your changes in the LaTeX
+  file will be overwritten. So this should be only done once the content
+  of your thesis doesn’t change.
+- A better way to add your personal format style is to add LaTeX code in
+  the YAML header under the option `header-includes:` since that style
+  will be included every time you render your document.
 
 ------------------------------------------------------------------------
 
 ## Useful resources
 
--   R Markdown
-    -   The official [R Markdown
-        documentation](https://rmarkdown.rstudio.com/lesson-1.html) from
-        RStudio
-    -   R Markdown [reference
-        guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
-    -   R Markdown
-        [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
-    -   The online book [R Markdown: The Definitive
-        Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui
-        Xie, J. J. Allaire, and Garrett Grolemund
--   Bookdown
-    -   The online book [bookdown: Authoring Books and Technical
-        Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
-        by Yihui Xie
--   LaTeX
-    -   The official [LaTeX help and
-        documentation](https://www.latex-project.org/help/documentation/)
-    -   The [overleaf](https://www.overleaf.com/learn) documentation
--   Git
-    -   The online book [Happy Git and GitHub for the
-        useR](https://happygitwithr.com/) is a novice-friendly guide to
-        getting starting with using Git with R and RStudio.
+- R Markdown
+  - The official [R Markdown
+    documentation](https://rmarkdown.rstudio.com/lesson-1.html) from
+    RStudio
+  - R Markdown [reference
+    guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+  - R Markdown
+    [cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+  - The online book [R Markdown: The Definitive
+    Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J. J.
+    Allaire, and Garrett Grolemund
+- Bookdown
+  - The online book [bookdown: Authoring Books and Technical Documents
+    with R Markdown](https://bookdown.org/yihui/bookdown/) by Yihui Xie
+- LaTeX
+  - The official [LaTeX help and
+    documentation](https://www.latex-project.org/help/documentation/)
+  - The [overleaf](https://www.overleaf.com/learn) documentation
+- Git
+  - The online book [Happy Git and GitHub for the
+    useR](https://happygitwithr.com/) is a novice-friendly guide to
+    getting starting with using Git with R and RStudio.
