@@ -47,9 +47,9 @@ packages in general, I highly recommend the following two online books
 
 ## Installation
 
-**NEW**: The package repository has been moved to the new GitHub account
+**NEW: The package repository has been moved to the new GitHub account
 of the Department of Biology, University of Hamburg:
-[github.com/uham-bio](https://github.com/uham-bio) **!!!!!!**
+[github.com/uham-bio](https://github.com/uham-bio)!!!!!!**
 
 Install the *bookdown* and *UHHthesis* packages. Note that *UHHthesis*
 is **not** available on CRAN so you have to install it from GitHub using
